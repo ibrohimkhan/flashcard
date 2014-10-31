@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered table-hover">
+  <caption><h3>List of cards</h3></caption>
+  <thead>
+    <th>Original Text</th>
+    <th>Translated Text</th>
+    <th>Reviewed Date</th>
+  </thead>
+  <tbody>
+    <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date.day <= 9 ? ('0' + card.review_date.day.to_s) : card.review_date.day %>/
+        <%= card.review_date.month <= 9 ? ('0' + card.review_date.month.to_s) : card.review_date.month %>/
+        <%= card.review_date.year %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
