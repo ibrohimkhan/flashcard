@@ -1,18 +1,23 @@
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-hover">
   <caption>
     <h3>List of cards</h3>
   </caption>
   <thead>
-    <th>Original Text</th>
-    <th>Translated Text</th>
-    <th>Reviewed Date</th>
+    <th class="text-center">Original Text</th>
+    <th class="text-center">Translated Text</th>
+    <th class="text-center">Reviewed Date</th>
+    <th class="text-center">Actions</th>
   </thead>
   <tbody>
     <% @cards.each do |card| %>
       <tr>
-        <td><%= card.original_text %></td>
-        <td><%= card.translated_text %></td>
-        <td><%= card.review_date.strftime("%d/%m/%y") %></td>
+        <td align="center"><%= card.original_text %></td>
+        <td align="center"><%= card.translated_text %></td>
+        <td align="center"><%= card.review_date.strftime("%d/%m/%y") %></td>
+        <td align="center">
+          <%= link_to "Update", "#", class: "btn btn-primary btn-xs" %>
+          <%= link_to "Remove", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
