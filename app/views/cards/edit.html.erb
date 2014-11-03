@@ -1,0 +1,8 @@
+<%= simple_form_for @card do |f| %>
+    <%= f.input :original_text, label: "Original Text ", input_html: { maxlength: 20 } %>
+    <%= f.input :translated_text, label: "Translated Text ", input_html: { maxlength: 20 } %>
+    <%= f.input :review_date, label: "Review Date " %>
+    <%= f.button :submit, value="Save" %>
+<% end %>
+
+<%= link_to "Back", cards_path %>

@@ -15,7 +15,7 @@
         <td align="center"><%= card.translated_text %></td>
         <td align="center"><%= card.review_date.strftime("%d/%m/%y") %></td>
         <td align="center">
-          <%= link_to "Update", "#", class: "btn btn-primary btn-xs" %>
+          <%= link_to "Update", edit_card_path(card), class: "btn btn-primary btn-xs" %>
           <%= link_to "Remove", card_path(card), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
         </td>
       </tr>
