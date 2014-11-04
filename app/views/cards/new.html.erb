@@ -1,0 +1,6 @@
+<%= simple_form_for @card, html: {class: 'form-horizontal' } do |f| %>
+  <%= f.input :original_text, label: "Original Text" %>
+  <%= f.input :translated_text, label: "Translated Text" %>
+  <%= f.input :review_date, label: "Review Date" %><br>
+  <%= f.button :submit, class: "btn btn-danger btn-sm" %> <%= link_to "Back", cards_path, class: "btn btn-info btn-sm" %>
+<% end %>

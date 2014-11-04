@@ -7,6 +7,20 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
   end
 
+  def new
+    @card = Card.new
+  end
+
+  def create
+    @card = Card.new(card_params)
+
+    if @card.save
+      redirect_to @card
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @card = Card.find(params[:id])
   end
@@ -17,7 +31,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to @card
     else
-      render "edit"
+      render 'edit'
     end
 
   end
