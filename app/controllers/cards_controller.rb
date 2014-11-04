@@ -14,16 +14,22 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    return redirect_to @card if @card.save
-    render 'new'
+    if @card.save
+      redirect_to @card
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
-    return redirect_to @card if @card.update(card_params)
-    render 'edit'
+    if @card.update(card_params)
+      redirect_to @card
+    else
+      render 'edit'
+    end
   end
 
   def destroy
