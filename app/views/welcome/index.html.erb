@@ -2,6 +2,16 @@
   Первый в мире удобный менеджер флеш-карточек. Именно так.
 </p>
 
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <% if flash[:notice] %>
+      <div class="result-message alert-info alert"><%= flash[:notice] %></div>
+    <% end %>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
 <div class="card-layout">
   <div class="row">
     <div class="col-md-4"></div>
@@ -11,8 +21,10 @@
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 card-translation-layout">
-      <%= simple_form_for @review, html: {class: 'form-horizontal' } do |f| %>
-        <%= f.input :translated_text, label: 'Напишите перевод:', required: false %><br>
+      <%= simple_form_for @card, :url => url_for(:action => 'review', :controller => 'reviews'), :method => 'post',
+                          html: {class: 'form-horizontal' } do |f| %>
+        <%= f.input :original_text, as: :hidden %>
+        <%= f.input :user_translation, label: 'Напишите перевод:', required: false %><br>
         <%= f.button :submit, value: 'Проверить', class: 'btn btn-info btn-sm' %>
       <% end %>
     </div>
