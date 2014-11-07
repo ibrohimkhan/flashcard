@@ -20,4 +20,5 @@ class ReviewsController < ApplicationController
   def text_params
     params.require(:card).permit(:original_text, :user_translation, :id)
   end
+  
 end
