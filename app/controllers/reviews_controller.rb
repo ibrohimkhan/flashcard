@@ -14,10 +14,10 @@ class ReviewsController < ApplicationController
 
     flash[:item_id] = text_params[:id]
     redirect_to root_path
-    end
+  end
 
   private
-  
+
   def text_params
     params.require(:card).permit(:original_text, :user_translation, :id)
   end
