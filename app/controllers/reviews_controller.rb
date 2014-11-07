@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
 
     flash[:item_id] = text_params[:id]
     redirect_to root_path
-  end
+    end
 
   private
   
