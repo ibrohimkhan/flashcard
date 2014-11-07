@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def review
-    @card = Card.find_translation(text_params[:original_text], text_params[:user_translation])
+    @card = Card.find_translation(text_params[:original_text],
+                                  text_params[:user_translation])
     # binding.pry
 
     if @card[0].nil? || @card.empty?
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
 
   private
 
-    def text_params
-      params.require(:card).permit(:original_text, :user_translation, :id)
-    end
+  def text_params
+    params.require(:card).permit(:original_text, :user_translation, :id)
+  end
 end
