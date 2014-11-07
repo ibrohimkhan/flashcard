@@ -1,15 +1,12 @@
 class ReviewsController < ApplicationController
-  def review
-    @card = Card.find_translation(text_params[:original_text],
-                                  text_params[:user_translation])
+  def create
+    @card = Card.find_by_id(text_params[:id])
     # binding.pry
 
-    if @card[0].nil? || @card.empty?
-      flash[:notice] = "Не правильно"
-    else
+    if @card.found_translation?(text_params[:user_translation])
       flash[:notice] = "Правильно"
-      @card[0][:review_date] += 3.day
-      @card[0].save!
+    else
+      flash[:notice] = "Не правильно"
     end
 
     flash[:item_id] = text_params[:id]
