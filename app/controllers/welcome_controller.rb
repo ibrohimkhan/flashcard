@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def index
     if flash[:item_id]
       @current_card = Card.find_by_id(flash[:item_id])
