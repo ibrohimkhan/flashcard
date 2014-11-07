@@ -15,7 +15,9 @@
 <div class="card-layout">
   <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4 original-text-card"><%= @card.original_text %></div>
+    <div class="col-md-4 original-text-card">
+      <%= @card.original_text %>
+    </div>
     <div class="col-md-4"></div>
   </div>
   <div class="row">
@@ -23,6 +25,7 @@
     <div class="col-md-4 card-translation-layout">
       <%= simple_form_for @card, :url => url_for(:action => 'review', :controller => 'reviews'), :method => 'post',
                           html: {class: 'form-horizontal' } do |f| %>
+        <%= f.input :id, as: :hidden %>
         <%= f.input :original_text, as: :hidden %>
         <%= f.input :user_translation, label: 'Напишите перевод:', required: false %><br>
         <%= f.button :submit, value: 'Проверить', class: 'btn btn-info btn-sm' %>
