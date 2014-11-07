@@ -8,5 +8,4 @@ class WelcomeController < ApplicationController
       @card = Card.first_card(Date.today)
     end
   end
-
 end
