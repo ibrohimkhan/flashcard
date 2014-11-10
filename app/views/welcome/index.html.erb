@@ -12,12 +12,12 @@
   <div class="col-md-3"></div>
 </div>
 
-<% if !@card.nil? %>
+<% if @card %>
   <div class="card-layout">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4 original-text-card">
-        <%= @card.original_text unless @card.nil? %>
+        <%= @card.original_text %>
       </div>
       <div class="col-md-4"></div>
     </div>
