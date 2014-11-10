@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Не правильно"
     end
 
-    flash[:item_id] = text_params[:id]
+    flash[:next_item] = true
     redirect_to root_path
   end
 

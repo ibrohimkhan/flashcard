@@ -2,8 +2,9 @@ class Card < ActiveRecord::Base
   attr_accessor :user_translation
   validates :original_text, :translated_text, presence: true
 
-  scope :first_card, -> (date) { where("review_date <= ?", date).first }
-  scope :next_card, -> (date, card_id) { where("review_date <= ? and id > ?", date, card_id).first }
+  @@counter = 0
+  scope :first_card, -> (date) { @@counter = 0; where("review_date <= ?", date).first }
+  scope :next_card, -> (date) { where("review_date <= ?", date).limit(1).offset(@@counter += 1) }
 
   def found_translation?(user_translated_text)
     if self.translated_text == user_translated_text
