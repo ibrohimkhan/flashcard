@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
   scope :first_card, -> (date) { @@counter = 0; where("review_date <= ?", date).first }
   scope :next_card, -> (date) { where("review_date <= ?", date).limit(1).offset(@@counter += 1) }
 
-  def is_translated?(user_translated_text)
+  def translated?(user_translated_text)
     if self.translated_text == user_translated_text
       self.review_date += 3.day
       self.save

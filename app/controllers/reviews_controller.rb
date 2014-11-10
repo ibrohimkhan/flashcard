@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     @card = Card.find(card_params[:id])
     # binding.pry
 
-    if @card.is_translated?(card_params[:user_translation])
+    if @card.translated?(card_params[:user_translation])
       flash[:notice] = "Правильно"
     else
       flash[:notice] = "Не правильно"
