@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  attr_accessor :user_translation
+  attr_reader :user_translation
   validates :original_text, :translated_text, presence: true
 
   @@counter = -1
