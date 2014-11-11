@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :cards
 
-  resource :reviews
+  resource :review
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

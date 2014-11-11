@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @card = Card.next_card(Date.today)[0]
-    @card = Card.first_card(Date.today) if @card.nil?
+    @card = Card.get_card(Date.today)
   end
 end
