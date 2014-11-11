@@ -6,4 +6,9 @@ class Card < ActiveRecord::Base
   def translated?(user_translated_text)
     translated_text == user_translated_text
   end
+
+  def increase_review_date
+    self.review_date += 3.day
+    save
+  end
 end
