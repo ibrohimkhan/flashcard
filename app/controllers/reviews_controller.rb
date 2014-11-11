@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-    @card = Card.find(params[:id])
+    @card = Card.find(params[:card_id])
 
     if @card.translated?(params[:user_translation])
       flash[:notice] = "Правильно"

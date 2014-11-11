@@ -24,8 +24,8 @@
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4 card-translation-layout">
-        <%= form_tag (review_path), html: {class: 'form' } do %>
-          <%= hidden_field_tag :id, @card.id %>
+        <%= form_tag review_path, html: {class: 'form' } do %>
+          <%= hidden_field_tag :card_id, @card.id %>
           <div class="form-group">
             <%= label_tag :user_translation, 'Напишите перевод:' %><br>
             <%= text_field_tag :user_translation %><br>
