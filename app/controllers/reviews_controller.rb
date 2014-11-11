@@ -2,9 +2,9 @@ class ReviewsController < ApplicationController
   def create
     @card = Card.find(params[:card_id])
 
-    if @card.translated?(params[:user_translation])
+    if @card.check_translation?(params[:user_translation])
       flash[:notice] = "Правильно"
-      @card.increase_review_date
+      @card.update_attribute
     else
       flash[:notice] = "Не правильно"
     end

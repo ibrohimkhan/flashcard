@@ -3,11 +3,11 @@ class Card < ActiveRecord::Base
 
   scope :for_review, -> (date) { where("review_date <= ?", date).first }
 
-  def translated?(user_translated_text)
+  def check_translation?(user_translated_text)
     translated_text == user_translated_text
   end
 
-  def increase_review_date
+  def update_attribute
     self.review_date += 3.day
     save
   end
