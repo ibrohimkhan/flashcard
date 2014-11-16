@@ -24,13 +24,13 @@
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4 card-translation-layout">
-        <%= form_tag review_path, html: {class: 'form' } do %>
-          <%= hidden_field_tag :card_id, @card.id %>
+        <%= form_for :review, url: review_path, html: {class: 'form' } do |f| %>
+          <%= f.hidden_field :card_id, value: @card.id %>
           <div class="form-group">
-            <%= label_tag :user_translation, 'Напишите перевод:' %><br>
-            <%= text_field_tag :user_translation %><br>
+            <%= f.label :user_translation, 'Напишите перевод:' %><br>
+            <%= f.text_field :user_translation %><br>
           </div>
-          <%= submit_tag 'Проверить', class: 'btn btn-info btn-sm' %>
+          <%= f.submit 'Проверить', class: 'btn btn-info btn-sm' %>
         <% end %>
       </div>
       <div class="col-md-4"></div>
