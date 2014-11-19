@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
     if @card.check_translation(review_params[:user_translation])
       flash[:notice] = "Правильно"
-      @card.update_review_date(@card.review_date += 3.day)
+      @card.update_review_date
     else
       flash[:notice] = "Не правильно"
     end
